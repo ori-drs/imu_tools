@@ -1,0 +1,14 @@
+path:         phidgets_imu_upside_down.bag
+version:      2.0
+duration:     56.2s
+start:        Feb 07 2013 13:03:56.21 (1360242236.21)
+end:          Feb 07 2013 13:04:52.45 (1360242292.45)
+size:         936.9 KB
+messages:     27928
+compression:  bz2 [10/10 chunks; 8.40%]
+uncompressed:   7.0 MB @ 126.7 KB/s
+compressed:   598.1 KB @  10.6 KB/s (8.40%)
+types:        sensor_msgs/Imu           [6a62c6daae103f4ff57a132d6f95cec2]
+              sensor_msgs/MagneticField [2f3b0b43eed0c9501de0fa3ff89a45aa]
+topics:       /imu/data_raw   13964 msgs    : sensor_msgs/Imu          
+              /imu/mag        13964 msgs    : sensor_msgs/MagneticField

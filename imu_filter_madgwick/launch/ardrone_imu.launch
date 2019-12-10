@@ -1,0 +1,11 @@
+<launch>
+  <node name="imu_filter_node" pkg="imu_filter_madgwick" type="imu_filter_node" output="screen">
+    <remap from="/imu" to="/ardrone/imu" />
+    <remap from="/mag" to="/ardrone/NOTHING/mag" />
+
+    <remap from="/imu_out" to="/ardrone/imu_out" />
+
+    <param name="use_mag" value="false" />
+
+  </node>
+</launch>

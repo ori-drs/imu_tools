@@ -1,0 +1,14 @@
+<launch>
+  <node name="imu_filter_node" pkg="imu_filter_madgwick" type="imu_filter_node" output="screen">
+    <remap from="/imu" to="/camera/imu" />
+    <remap from="/mag" to="/imu/DONOTHING/mag" />
+
+    <remap from="/imu_out" to="/camera/imu_fixed_with_orientation" />
+
+    <param name="use_mag" value="false" />
+
+  </node>
+
+  <node name="rotate_imu" pkg="imu_filter_madgwick" type="rotate_imu.py" output="screen"/>
+
+</launch>

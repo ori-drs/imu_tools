@@ -1,0 +1,14 @@
+path:         sparkfun_razor.bag
+version:      2.0
+duration:     31.0s
+start:        Nov 14 2012 15:40:14.80 (1352907614.80)
+end:          Nov 14 2012 15:40:45.84 (1352907645.84)
+size:         151.0 KB
+messages:     4288
+compression:  bz2 [2/2 chunks; 8.16%]
+uncompressed:  1.1 MB @ 36.1 KB/s
+compressed:   91.4 KB @  2.9 KB/s (8.16%)
+types:        sensor_msgs/Imu           [6a62c6daae103f4ff57a132d6f95cec2]
+              sensor_msgs/MagneticField [2f3b0b43eed0c9501de0fa3ff89a45aa]
+topics:       /imu/data_raw   2144 msgs    : sensor_msgs/Imu          
+              /imu/mag        2144 msgs    : sensor_msgs/MagneticField

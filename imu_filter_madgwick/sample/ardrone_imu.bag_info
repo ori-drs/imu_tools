@@ -1,0 +1,14 @@
+path:         ardrone_imu.bag
+version:      2.0
+duration:     1:32s (92s)
+start:        Nov 14 2012 15:33:24.59 (1352907204.59)
+end:          Nov 14 2012 15:34:56.00 (1352907297.00)
+size:         607.6 KB
+messages:     8616
+compression:  bz2 [4/4 chunks; 21.42%]
+uncompressed:   2.3 MB @ 25.1 KB/s
+compressed:   496.7 KB @  5.4 KB/s (21.42%)
+types:        sensor_msgs/Imu           [6a62c6daae103f4ff57a132d6f95cec2]
+              sensor_msgs/MagneticField [2f3b0b43eed0c9501de0fa3ff89a45aa]
+topics:       /ardrone/imu   4308 msgs    : sensor_msgs/Imu          
+              /ardrone/mag   4308 msgs    : sensor_msgs/MagneticField

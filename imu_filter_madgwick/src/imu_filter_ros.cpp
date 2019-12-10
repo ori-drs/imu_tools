@@ -51,6 +51,8 @@ ImuFilterRos::ImuFilterRos(ros::NodeHandle nh, ros::NodeHandle nh_private):
   if (!nh_private_.getParam ("publish_debug_topics", publish_debug_topics_))
     publish_debug_topics_= false;
 
+  std::cout << use_mag_ << "use_mag_\n";
+
   std::string world_frame;
   if (!nh_private_.getParam ("world_frame", world_frame))
     world_frame = "enu";
@@ -89,7 +91,7 @@ ImuFilterRos::ImuFilterRos(ros::NodeHandle nh, ros::NodeHandle nh_private):
 
   // **** register publishers
   imu_publisher_ = nh_.advertise<sensor_msgs::Imu>(
-    ros::names::resolve("imu") + "/data", 5);
+    ros::names::resolve("imu_out"), 5);
 
   if (publish_debug_topics_)
   {
@@ -105,12 +107,12 @@ ImuFilterRos::ImuFilterRos(ros::NodeHandle nh, ros::NodeHandle nh_private):
   int queue_size = 5;
 
   imu_subscriber_.reset(new ImuSubscriber(
-    nh_, ros::names::resolve("imu") + "/data_raw", queue_size));
+    nh_, ros::names::resolve("imu"), queue_size));
 
   if (use_mag_)
   {
     mag_subscriber_.reset(new MagSubscriber(
-      nh_, ros::names::resolve("imu") + "/mag", queue_size));
+      nh_, ros::names::resolve("mag"), queue_size));
 
     sync_.reset(new Synchronizer(
       SyncPolicy(queue_size), *imu_subscriber_, *mag_subscriber_));
@@ -370,8 +372,8 @@ void ImuFilterRos::reconfigCallback(FilterConfig& config, uint32_t level)
 void ImuFilterRos::checkTopicsTimerCallback(const ros::TimerEvent&)
 {
   if (use_mag_)
-    ROS_WARN_STREAM("Still waiting for data on topics " << ros::names::resolve("imu") << "/data_raw"
-                    << " and " << ros::names::resolve("imu") << "/mag" << "...");
+    ROS_WARN_STREAM("Still waiting for data on topics " << ros::names::resolve("imu")
+                    << " and " << ros::names::resolve("mag") << "/mag" << "...");
   else
-    ROS_WARN_STREAM("Still waiting for data on topic " << ros::names::resolve("imu") << "/data_raw" << "...");
+    ROS_WARN_STREAM("Still waiting for data on topic " << ros::names::resolve("imu") << "...");
 }
