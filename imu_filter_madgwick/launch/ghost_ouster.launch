@@ -1,9 +1,9 @@
 <launch>
   <node name="imu_filter_node" pkg="imu_filter_madgwick" type="imu_filter_node" output="screen">
-    <remap from="/imu" to="/os1_cloud_node/imu_fixed" />
+    <remap from="/imu" to="/os1_cloud_node/imu" />
     <remap from="/mag" to="/imu/DONOTHING/mag" />
 
-    <remap from="/imu_out" to="/os1_cloud_node/imu_fixed_with_orientation" />
+    <remap from="/imu_out" to="/os1_cloud_node/imu_with_orientation" />
 
     <param name="use_mag" value="false" />
 
